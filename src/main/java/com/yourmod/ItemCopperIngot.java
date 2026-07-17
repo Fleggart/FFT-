@@ -8,6 +8,6 @@ public class ItemCopperIngot extends Item {
         this.maxStackSize = 64;
         this.setCreativeTab(CreativeTabs.MATERIALS);
         this.setRegistryName("copper_ingot");
-        this.setTranslationKey(this.getRegistryName().toString());
+        this.setTranslationKey("copper_ingot");
     }
 }
