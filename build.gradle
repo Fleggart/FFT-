@@ -28,16 +28,5 @@ minecraft {
     mcpMappingChannel = 'stable'
     mcpMappingVersion = '39'
     
-    runs {
-        client {
-            programArguments = [
-                '--username', 'DevPlayer',
-                '--width', '1280',
-                '--height', '720'
-            ]
-        }
-        server {
-            programArguments = ['nogui']
-        }
-    }
+    
 }
