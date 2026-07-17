@@ -1,50 +1,32 @@
-// 1. 插件声明（改用新语法）
+// build.gradle（已移除 pluginManagement）
 plugins {
     id 'java'
     id 'com.gtnewhorizons.retrofuturagradle' version '2.0.2'
 }
 
-pluginManagement {
-    repositories {
-    
-        maven {
-            name 'GTNH Maven'
-            url 'https://nexus.gtnewhorizons.com/repository/public/'
-        }
-    
-        gradlePluginPortal()
-        mavenCentral()
+repositories {
+    mavenCentral()
+    maven {
+        name 'GTNH Maven'
+        url 'https://nexus.gtnewhorizons.com/repository/public/'
     }
 }
 
-// 3. Java版本（可以继续用1.8）
 sourceCompatibility = targetCompatibility = '1.8'
 
-// 4. 项目基本信息（保留）
 version = "1.0.0"
 group = "com.yourname.yourmod"
 archivesBaseName = "yourmod"
 
-// 5. Minecraft配置（完全不同的写法）
 minecraft {
     mcVersion = '1.12.2'
-    
-    // 映射改用MCP通道（比snapshot更稳定）
     mcpMappingChannel = 'stable'
     mcpMappingVersion = '39'
     
-    // 运行配置
     runs {
         client {
-            // 启动客户端，自动添加模组
             main 'net.minecraft.launchwrapper.Launch'
             args '--username', 'DevPlayer'
         }
     }
-}
-
-
-dependencies {
-    // 使用RFG提供的特殊方式引入
-    // implementation 'your.dependency:version'
 }
