@@ -1,7 +1,7 @@
 // 1. 插件声明（改用新语法）
 plugins {
     id 'java'
-    id 'com.gtnewhorizons.retrofuturagradle' version '1.3.24'
+    id 'com.gtnewhorizons.retrofuturagradle' version '2.0.2'
 }
 
 // 2. 仓库配置（必须添加GTNH仓库）
