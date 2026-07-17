@@ -18,7 +18,6 @@ repositories {
 }
 
 version = "1.0.0"
-group = "com.yourname.yourmod"
 base {
     archivesName = "yourmod"
 }
