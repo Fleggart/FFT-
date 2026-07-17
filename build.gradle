@@ -4,12 +4,16 @@ plugins {
     id 'com.gtnewhorizons.retrofuturagradle' version '2.0.2'
 }
 
-// 2. 仓库配置（必须添加GTNH仓库）
-repositories {
-    mavenCentral()
-    maven {
-        name 'GTNH Maven'
-        url 'https://nexus.gtnewhorizons.com/repository/public/'
+pluginManagement {
+    repositories {
+    
+        maven {
+            name 'GTNH Maven'
+            url 'https://nexus.gtnewhorizons.com/repository/public/'
+        }
+    
+        gradlePluginPortal()
+        mavenCentral()
     }
 }
 
