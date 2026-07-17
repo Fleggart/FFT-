@@ -1,7 +1,12 @@
-// build.gradle（已移除 pluginManagement）
 plugins {
     id 'java'
     id 'com.gtnewhorizons.retrofuturagradle' version '2.0.2'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
 }
 
 repositories {
@@ -12,15 +17,8 @@ repositories {
     }
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(8)
-    }
-}
-
 version = "1.0.0"
 group = "com.yourname.yourmod"
-
 base {
     archivesName = "yourmod"
 }
@@ -32,8 +30,14 @@ minecraft {
     
     runs {
         client {
-            main 'net.minecraft.launchwrapper.Launch'
-            args '--username', 'DevPlayer'
+            programArguments = [
+                '--username', 'DevPlayer',
+                '--width', '1280',
+                '--height', '720'
+            ]
+        }
+        server {
+            programArguments = ['nogui']
         }
     }
 }
