@@ -12,7 +12,11 @@ repositories {
     }
 }
 
-sourceCompatibility = targetCompatibility = '1.8'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
 
 version = "1.0.0"
 group = "com.yourname.yourmod"
