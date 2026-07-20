@@ -20,7 +20,7 @@ public class ModItems {
     public static void init() {
         ITEMS.clear();
         
-        List<ConfigLoader.ItemData> dataList = ConfigLoader.loadItemsProperly();
+        List<ConfigLoader.ItemData> dataList = ConfigLoader.loadItems();
         
         for (ConfigLoader.ItemData data : dataList) {
             DynamicItem item = new DynamicItem(data.id, data.quantity, data.creativeTab);
