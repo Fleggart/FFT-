@@ -2,20 +2,18 @@ package com.yourmod;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 
-public class DynamicItem extends Item {
+public class DynamicItem extends ItemFood {
     private final String itemId;
 
-    public DynamicItem(String itemId, int stackSize, String creativeTab) {
-        this.itemId = itemId;
-        this.maxStackSize = stackSize;
-        this.setRegistryName(itemId);
-        this.setTranslationKey(itemId);
-        this.setCreativeTab(getCreativeTabByName(creativeTab));
-    }
-
-    public String getItemId() {
-        return itemId;
+    public DynamicItem(ConfigLoader.ItemData data) {
+        super(data.hunger, data.saturation, data.isFood);
+        this.itemId = data.id;
+        this.setRegistryName(data.id);
+        this.setTranslationKey(data.id);
+        this.maxStackSize = data.quantity;
+        this.setCreativeTab(getCreativeTabByName(data.creativeTab));
     }
 
     private CreativeTabs getCreativeTabByName(String name) {
@@ -23,8 +21,6 @@ public class DynamicItem extends Item {
             case "MATERIALS": return CreativeTabs.MATERIALS;
             case "MISC": return CreativeTabs.MISC;
             case "FOOD": return CreativeTabs.FOOD;
-            case "TOOLS": return CreativeTabs.TOOLS;
-            case "COMBAT": return CreativeTabs.COMBAT;
             default: return CreativeTabs.MISC;
         }
     }
